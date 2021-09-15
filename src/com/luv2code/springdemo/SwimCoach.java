@@ -6,22 +6,33 @@ import org.springframework.stereotype.Component;
 @Component
 public class SwimCoach implements Coach {
 	
-	@Value("$(foo.email)")
+	@Value("${foo.email}")
 	private String email;
 	
-	@Value("$(foo.team)")
+	@Value("${foo.team}")
 	private String team;
 
+	private FortuneService fortuneService;
+	
+	public SwimCoach(FortuneService fortuneService) {
+		this.fortuneService=fortuneService;
+	}
 	@Override
 	public String getDailyWorkout() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Swim 1000 meters as a warm up.";
 	}
 
 	@Override
 	public String getDailyFortune() {
 		// TODO Auto-generated method stub
-		return null;
+		return fortuneService.getFortune();
+	}
+	public String getEmail() {
+		return email;
+	}
+	public String getTeam() {
+		return team;
 	}
 
 }
