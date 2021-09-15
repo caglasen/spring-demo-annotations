@@ -12,7 +12,7 @@ public class NewCoach implements Coach{
 	}
 
 	@Override
-	public String getDailtFortune() {
+	public String getDailyFortune() {
 		// TODO Auto-generated method stub
 		return null;
 	}
